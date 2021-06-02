@@ -16,12 +16,12 @@ class UsersController < ApplicationController
   end
 
   get '/signup' do
-    erb :signup
+      erb :signup
   end
 
   post '/signup' do
-    if params[:name] == "" || params[:username] = "" || params[:password] == ""
-      redirect to '/signup'
+    if params[:name] == "" || params[:username] == "" || params[:password] == ""
+      erb :signup
     else
       @user = User.create(name: params[:name], username: params[:username], password: params[:password])
       session[:user_id] = @user.id
@@ -30,6 +30,7 @@ class UsersController < ApplicationController
   end
 
   get '/users/:id' do
+    @user = User.find_by(id: params[:id])
     "this will be the showpage"
   end
 end
