@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   get '/login' do
-    erb :login
+      erb :login
   end
 
   post '/login' do
@@ -31,6 +31,6 @@ class UsersController < ApplicationController
 
   get '/users/:id' do
     @user = User.find_by(id: params[:id])
-    "this will be the showpage"
+    erb :'/users/show'
   end
 end
