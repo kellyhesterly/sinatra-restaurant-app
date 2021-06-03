@@ -23,7 +23,8 @@ class RestaurantEntriesController < ApplicationController
   end
 
   get '/restaurants/:id' do
-    "hello world"
+    @restaurant = RestaurantEntry.find_by(id: params[:id])
+    erb :'/restaurants/show'
   end
 
 end
