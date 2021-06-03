@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
 
   get '/login' do
+    if logged_in?
+      redirect to "/users/#{current_user.id}"
+    else
       erb :login
+    end
   end
 
   post '/login' do
@@ -16,7 +20,11 @@ class UsersController < ApplicationController
   end
 
   get '/signup' do
+    if logged_in?
+      redirect to "/users/#{current_user.id}"
+    else
       erb :signup
+    end
   end
 
   post '/signup' do
@@ -30,13 +38,21 @@ class UsersController < ApplicationController
   end
 
   get '/users/:id' do
-    @user = User.find_by(id: params[:id])
-    erb :'/users/show'
+    if logged_in?
+      @user = User.find_by(id: params[:id])
+      erb :'/users/show'
+    else
+      erb :login
+    end
   end
 
   get '/logout' do
-    @user = User.find_by(id: params[:id])
-    session.destroy
-    redirect to '/login'
+    if logged_in?
+      @user = User.find_by(id: params[:id])
+      session.destroy
+      redirect to '/login'
+  else
+    erb :login
+    end
   end
 end
