@@ -36,14 +36,22 @@ class RestaurantEntriesController < ApplicationController
   end
 
   get '/restaurants/:id/edit' do
+    if logged_in?
       @restaurant = RestaurantEntry.find(params[:id])
-      erb :'/restaurants/edit'
+      if @restaurant && @restaurant.user_id == current_user.id
+        erb :'/restaurants/edit'
+      else
+        redirect to '/restaurants/index'
+      end
+    else
+      redirect to '/'
     end
+  end
 
   patch '/restaurants/:id' do
     if logged_in?
-      @restaurant = RestaurantEntry.find_by(id: params[:id])
-      if @restaurant && @restaurant.user_id == current_user
+      @restaurant = RestaurantEntry.find(params[:id])
+      if @restaurant && @restaurant.user_id == current_user.id
         if @restaurant.update(params)
           redirect to "/restaurants/#{@restaurant.id}"
         else
