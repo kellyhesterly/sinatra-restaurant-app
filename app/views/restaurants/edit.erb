@@ -1,0 +1,15 @@
+<h4>Restaurant Entry Edit</h4><br>
+
+<form method="POST" action="/restaurants/<%= @restaurant.id %>">
+<input type="hidden" name="_method" value="PATCH">
+
+  Restaurant Name: <input type="text" name="name" value="<%= @restaurant.name %>"><br>
+  Why you love it: <input type="text" name="content" value="<%= @restaurant.content %>"><br>
+  Recommended Dish: <input type="text" name="dish" value="<%= @restaurant.dish %>"><br>
+  Recommended Drink: <input type="text" name="drink" value="<%= @restaurant.drink %>"><br>
+  How pricey is this place? <input type="text" name="price" value="<%= @restaurant.price %>"><br>
+  How was the service? <input type="text" name="service" value="<%= @restaurant.service %>"><br>
+  What's the atmosphere like? <input type="text" name="atmosphere" value="<%= @restaurant.atmospher %>"><br>
+  <br>
+  <input type="submit" value="Edit Entry"><br>
+</form>
