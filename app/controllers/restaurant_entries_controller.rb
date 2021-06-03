@@ -5,8 +5,16 @@ class RestaurantEntriesController < ApplicationController
   end
 
   post '/restaurants' do
-    @restaurant = current_user.restaurant_entries.create(content: params[:content])
-    redirect to "/restaurants/#{@restaurant}"
+    if !logged_in?
+      redirect to '/'
+    end
+
+    if params[:name] != "" && params[:content] != ""
+      @restaurant = current_user.restaurant_entries.create(params)
+      redirect to "/restaurants/#{@restaurant.id}"
+    else
+      redirect '/restaurants/new'
+    end
   end
 
   get '/restaurants' do
@@ -15,8 +23,7 @@ class RestaurantEntriesController < ApplicationController
   end
 
   get '/restaurants/:id' do
-    @restaurant = RestaurantEntry.find_by(id: params[:id])
-    erb :'/restaurants/show'
+    "hello world"
   end
 
 end
