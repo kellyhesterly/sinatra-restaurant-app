@@ -1,16 +1,22 @@
 class RestaurantEntriesController < ApplicationController
 
-  get '/restaurant/new' do
-
+  get '/restaurants/new' do
+    erb :'/restaurants/new'
   end
 
-  post '/restaurant' do
-
+  post '/restaurants' do
+    @restaurant = current_user.restaurant_entries.create(content: params[:content])
+    redirect to "/restaurants/#{@restaurant}"
   end
 
   get '/restaurants' do
     @restaurants = RestaurantEntry.all
-    erb :'/restaurants/all'
+    erb :'/restaurants/index'
+  end
+
+  get '/restaurants/:id' do
+    @restaurant = RestaurantEntry.find_by(id: params[:id])
+    erb :'/restaurants/show'
   end
 
 end
