@@ -18,13 +18,21 @@ class RestaurantEntriesController < ApplicationController
   end
 
   get '/restaurants' do
-    @restaurants = RestaurantEntry.all
-    erb :'/restaurants/index'
+    if logged_in?
+      @restaurants = RestaurantEntry.all
+      erb :'/restaurants/index'
+    else
+      redirect to '/'
+    end
   end
 
   get '/restaurants/:id' do
-    @restaurant = RestaurantEntry.find_by(id: params[:id])
-    erb :'/restaurants/show'
+    if logged_in?
+      @restaurant = RestaurantEntry.find_by(id: params[:id])
+      erb :'/restaurants/show'
+    else
+      redirect to '/'
+    end
   end
 
 end
