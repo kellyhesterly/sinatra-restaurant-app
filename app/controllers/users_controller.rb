@@ -15,7 +15,8 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect to "/users/#{@user.id}"
     else
-      erb :signup
+      flash[:message] = "Invalid credentials.  Please try again or click the singup link below if you are new."
+      redirect to "/login"
     end
   end
 
@@ -29,7 +30,8 @@ class UsersController < ApplicationController
 
   post '/signup' do
     if params[:name] == "" || params[:username] == "" || params[:password] == ""
-      erb :signup
+      flash[:message] = "Please make sure all entries are filled out below."
+      redirect to '/signup'
     else
       @user = User.create(name: params[:name], username: params[:username], password: params[:password])
       session[:user_id] = @user.id

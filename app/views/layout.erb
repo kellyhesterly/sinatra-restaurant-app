@@ -22,6 +22,10 @@
         <input type="submit" value="Logout">
       </form>
     <% end %>
+
+    <% if flash[:message] %>
+      <h4><%= flash[:message] %></h4>
+    <% end %>
     <div class="wrapper">
 
         <%= yield %>

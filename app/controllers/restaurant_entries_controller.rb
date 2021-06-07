@@ -13,6 +13,7 @@ class RestaurantEntriesController < ApplicationController
       @restaurant = current_user.restaurant_entries.create(params)
       redirect to "/restaurants/#{@restaurant.id}"
     else
+      flash[:message] = "Please make sure 'restaurant name' and 'why you love it' are filled out to create entry"
       redirect '/restaurants/new'
     end
   end
@@ -51,11 +52,13 @@ class RestaurantEntriesController < ApplicationController
   patch '/restaurants/:id' do
     if logged_in?
       @restaurant = RestaurantEntry.find(params[:id])
-      if @restaurant && @restaurant.user_id == current_user.id && params[:name] != "" && params[:content] != ""
-        if @restaurant.update(content: params[:content], dish: params[:dish], drink: params[:drink], service: params[:service], price: params[:price], name: params[:name], atmosphere: params[:atmosphere])
+      if @restaurant && @restaurant.user_id == current_user.id
+        if params[:name] != "" && params[:content] != "" && @restaurant.update(content: params[:content], dish: params[:dish], drink: params[:drink], service: params[:service], price: params[:price], name: params[:name], atmosphere: params[:atmosphere])
+          flash[:message] = "Edit successful!"
           redirect to "/restaurants/#{@restaurant.id}"
         else
-          redirect to "/restaurants/:id/edit"
+          flash[:message] = "Please make sure 'restaurant name' and 'why you love it' are not blank"
+          redirect to "/restaurants/#{@restaurant.id}/edit"
         end
       else
         redirect to '/restaurants/index'
