@@ -28,7 +28,7 @@ class RestaurantEntriesController < ApplicationController
 
   get '/restaurants/:id' do
     if logged_in?
-      @restaurant = RestaurantEntry.find_by_name(params[:name])
+      @restaurant = RestaurantEntry.find(params[:id])
       erb :'/restaurants/show'
     else
       redirect to '/'

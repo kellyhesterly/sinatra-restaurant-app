@@ -3,5 +3,5 @@
 <br>
 
 <% @restaurants.each do |restaurant| %>
-  <a href="/restaurants/show"><li><%= restaurant.name %></li><br></a>
+  <a href="/restaurants/<%= restaurant.id %>"><li><%= restaurant.name %></li><br></a>
 <% end %>
