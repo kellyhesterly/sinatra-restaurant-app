@@ -52,7 +52,7 @@ class RestaurantEntriesController < ApplicationController
     if logged_in?
       @restaurant = RestaurantEntry.find(params[:id])
       if @restaurant && @restaurant.user_id == current_user.id
-        if @restaurant.update(params)
+        if @restaurant.update(content: params[:content], dish: params[:dish], drink: params[:drink], service: params[:service], price: params[:price], name: params[:name], atmosphere: params[:atmosphere])
           redirect to "/restaurants/#{@restaurant.id}"
         else
           redirect to "/restaurants/:id/edit"
