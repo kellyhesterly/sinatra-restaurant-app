@@ -3,7 +3,7 @@
 <br>
 
 <% @restaurants.each do |restaurant| %>
-  <a href="/restaurants/<%= restaurant.id %>"><li><%= restaurant.name %></li><br></a>
+  <a href="/restaurants/<%= restaurant.id %>"><li><%= restaurant.name %></a> - submitted by <%= restaurant.user.name %></li><br>
 <% end %>
 
 <br>
