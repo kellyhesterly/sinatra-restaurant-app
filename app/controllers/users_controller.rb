@@ -51,8 +51,8 @@ class UsersController < ApplicationController
       @user = User.find_by(id: params[:id])
       session.destroy
       redirect to '/login'
-  else
-    erb :login
+    else
+      erb :login
     end
   end
 end
