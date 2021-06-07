@@ -65,7 +65,7 @@ class RestaurantEntriesController < ApplicationController
     end
   end
 
-  delete '/restaurants/:id/delete' do
+  delete '/restaurants/:id' do
     if logged_in?
       @restaurant = RestaurantEntry.find(params[:id])
       if @restaurant && @restaurant.user_id == current_user.id

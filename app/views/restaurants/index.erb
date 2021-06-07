@@ -11,6 +11,8 @@
 <a href="/restaurants/new">Create Restaurant Entry</a><br>
 <br>
 <br>
-<form method="GET" action="/logout">
-<input type="submit" value="Logout">
+
+<form method="POST" action="/logout">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Logout">
 </form>
