@@ -5,3 +5,12 @@
 <% @restaurants.each do |restaurant| %>
   <a href="/restaurants/<%= restaurant.id %>"><li><%= restaurant.name %></li><br></a>
 <% end %>
+
+<br>
+<br>
+<a href="/restaurants/new">Create Restaurant Entry</a><br>
+<br>
+<br>
+<form method="GET" action="/logout">
+<input type="submit" value="Logout">
+</form>

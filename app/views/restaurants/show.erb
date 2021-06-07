@@ -21,13 +21,17 @@
   <p><%= @restaurant.atmosphere %></p><br>
 <li>
 
+<a href="/restaurants">View All Restaurant Entries</a><br>
+<br>
 <% if current_user.id == @restaurant.user_id %>
   <a href="/restaurants/<%= @restaurant.id %>/edit">Edit Restaurant Entry</a><br>
 <br>
 <br>
+
 <form method="POST" action="/restaurants/<%= @restaurant.id %>/delete">
   <input type="hidden" name="_method" value="DELETE">
   <input type="submit" value="Delete">
 </form>
+
 <% end %>
 
