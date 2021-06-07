@@ -1,5 +1,6 @@
-<h2><%= @restaurant.name %></h2><br>
+<h1><%= @restaurant.name %></h1><br>
 
+<h2>Recommended by <%= @restaurant.user.name %></h2><br>
 <li>
   <h4>Why <%= @restaurant.user.name %> loves it:</h4>
   <p><%= @restaurant.content %></p><br>
@@ -20,10 +21,13 @@
   <p><%= @restaurant.atmosphere %></p><br>
 <li>
 
-<a href="/restaurants/<%= @restaurant.id %>/edit">Edit Restaurant Entry</a><br>
+<% if current_user.id == @restaurant.user_id %>
+  <a href="/restaurants/<%= @restaurant.id %>/edit">Edit Restaurant Entry</a><br>
 <br>
 <br>
 <form method="POST" action="/restaurants/<%= @restaurant.id %>/delete">
   <input type="hidden" name="_method" value="DELETE">
   <input type="submit" value="Delete">
 </form>
+<% end %>
+
