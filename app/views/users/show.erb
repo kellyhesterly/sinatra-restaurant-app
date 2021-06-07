@@ -1,6 +1,15 @@
 <h4>Welcome <%= @user.name %>!</h4><br>
 <br>
 <br>
+<p>Your restaurant entries:</p>
+
+<% RestaurantEntry.all.each do |restaurant| %>
+  <% if restaurant.user_id == @user.id %>
+  <%= restaurant.name %><br>
+  <% end %>
+<% end %>
+<br>
+<br>
 <a href="/restaurants/new">Create Restaurant Entry</a><br>
-<a href="/restaurants">View Restaurant Entries</a><br>
+<a href="/restaurants">View All Restaurant Entries</a><br>
 <a href="/logout">Logout</a>
