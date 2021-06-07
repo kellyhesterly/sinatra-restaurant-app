@@ -14,6 +14,14 @@
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <body>
+    <% if logged_in? %>
+      <a href="/restaurants">View All Restaurant Entries</a><br>
+      <a href="/restaurants/new">Create Restaurant Entry</a><br>
+      <br>
+      <form method="GET" action="/logout">
+        <input type="submit" value="Logout">
+      </form>
+    <% end %>
     <div class="wrapper">
 
         <%= yield %>
