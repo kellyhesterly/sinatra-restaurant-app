@@ -6,11 +6,13 @@ class RestaurantEntriesController < ApplicationController
 
   post '/restaurants' do
     if !logged_in?
+      flash[:message] = "You must be logged in to view this page"
       redirect to '/'
     end
 
     if params[:name] != "" && params[:content] != ""
       @restaurant = current_user.restaurant_entries.create(params)
+      flash[:message] = "Restaurant entry created successfully"
       redirect to "/restaurants/#{@restaurant.id}"
     else
       flash[:message] = "Please make sure 'restaurant name' and 'why you love it' are filled out to create entry"
@@ -23,6 +25,7 @@ class RestaurantEntriesController < ApplicationController
       @restaurants = RestaurantEntry.all
       erb :'/restaurants/index'
     else
+      flash[:message] = "You must be logged in to view this page"
       redirect to '/'
     end
   end
@@ -32,6 +35,7 @@ class RestaurantEntriesController < ApplicationController
       @restaurant = RestaurantEntry.find(params[:id])
       erb :'/restaurants/show'
     else
+      flash[:message] = "You must be logged in to view this page"
       redirect to '/'
     end
   end
@@ -42,9 +46,11 @@ class RestaurantEntriesController < ApplicationController
       if @restaurant && @restaurant.user_id == current_user.id
         erb :'/restaurants/edit'
       else
+        flash[:message] = "You are only able to make edits to your own entries. Sorry!"
         redirect to '/restaurants/index'
       end
     else
+      flash[:message] = "You must be logged in to view this page"
       redirect to '/'
     end
   end
@@ -61,9 +67,11 @@ class RestaurantEntriesController < ApplicationController
           redirect to "/restaurants/#{@restaurant.id}/edit"
         end
       else
+        flash[:message] = "You are only able to make edits to your own entries. Sorry!"
         redirect to '/restaurants/index'
       end
     else
+      flash[:message] = "You must be logged in to view this page"
       redirect to '/'
     end
   end
@@ -73,9 +81,11 @@ class RestaurantEntriesController < ApplicationController
       @restaurant = RestaurantEntry.find(params[:id])
       if @restaurant && @restaurant.user_id == current_user.id
           @restaurant.delete
+          flash[:message] = "Restaurant entry deleted successfully"
           redirect to '/restaurants'
       end
     else
+      flash[:message] = "You must be logged in to view this page"
       redirect to '/'
     end
   end
