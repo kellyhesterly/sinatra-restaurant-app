@@ -83,6 +83,9 @@ class RestaurantEntriesController < ApplicationController
           @restaurant.delete
           flash[:message] = "Restaurant entry deleted successfully"
           redirect to '/restaurants'
+        else
+          flash[:message] = "You are only able to delete your own entries. Sorry!"
+          redirect to '/restaurants/index'
       end
     else
       flash[:message] = "You must be logged in to view this page"
