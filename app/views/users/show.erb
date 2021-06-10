@@ -1,6 +1,10 @@
 <!DOCTYPE html>
   <body>
 
+<!-- Header with image -->
+<header class="bgimg4" id="show">
+  <!-- <div class="w3-display-bottomleft w3-padding">
+  </div> -->
 <br>
 <center><h1>Welcome <%= @user.name %>!</h1></center><br>
 <br>
@@ -12,6 +16,8 @@
   <center><h4><a href="/restaurants/<%= restaurant.id %>"><%= restaurant.name %></a></h4></center><br>
   <% end %>
 <% end %>
+
+</header>
 
   </body>
 </html>
