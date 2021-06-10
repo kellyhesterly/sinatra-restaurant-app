@@ -1,18 +1,48 @@
-<h2>Please Signup Below</h2>
-<br>
+<style>
+body,h1,h2,h3,h4,h5,h6 {
+  font-family: "Amatic SC", sans-serif;
+  font-color: white}
+
+</style>
+
+<!DOCTYPE html>
+  <body>
+
+<!-- Navbar (sit on top) -->
+  <div class="w3-top w3-hide-small">
+    <div class="w3-bar w3-xlarge w3-black w3-opacity w3-hover-opacity-off" id="myNavbar">
+      <a href="/">Home</a>
+    </div>
+  </div>
+    <br>
+    <br>
+
+<!-- Form with image -->
+<header class="bgimg3 w3-display-container w3-grayscale-min" id="signup">
+
 <form method="POST" action="/signup">
-  <label for="name">Name:</label>
-  <input type="text" name="name" value=""><br>
-
-  <label for="username">Username:</label>
-  <input type="text" name="username" value=""><br>
-
-  <label for="password">Password:</label>
-  <input type="password" name="password" value=""><br>
+  <center><h1>Please Signup Below</h1></center><br>
+  <center><h4>Name: <input type="text" name="name" value=""></h4></center><br>
+  <center><h4>Username: <input type="text" name="username" value=""></h4></center><br>
+  <center><h4>Password: <input type="password" name="password" value=""></h4></center><br>
   <br>
   <br>
-  <input type="submit" value="Submit">
+  <h3><center><input type="submit" value="Submit"></center></h3>
 </form>
+
 <br>
 <br>
-<a href='/login'>Login</a>
+
+<center><h4><a href='/login'>Login</a></h4></center>
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-48 w3-xxlarge">
+  <p>Created by: Kelly Hesterly</p>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <a href="https://github.com/kellyhesterly?tab=repositories"><i class="fa fa-github fa-2x"></i></a>
+  <a href="www.linkedin.com/in/kellyhesterly"><i class="fa fa-linkedin-square fa-2x"></i></a>
+  <a href="https://twitter.com/smithh_22"><i class="fa fa-twitter-square fa-2x"></i></a>
+</footer>
+
+  </body>
+</html>
