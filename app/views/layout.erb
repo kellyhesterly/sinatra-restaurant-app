@@ -24,14 +24,10 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
 }
 
 .bgimg4 {
-  background-image: url("https://images.unsplash.com/photo-1454944338482-a69bb95894af?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80")
-}
-
-.container {
-    /*display: table-cell;*/
-    /*text-align: right;*/
-    display: inline-block;
-    text-align: center;
+  background-image: url("https://images.unsplash.com/photo-1454944338482-a69bb95894af?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80");
+  background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 
@@ -52,7 +48,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
 
     <!-- Navbar (sit on bottom) -->
     <% if logged_in? %>
-    <div class="w3-bottom w3-hide-small">
+    <div class="w3-bottom">
       <div class="w3-bar w3-xlarge w3-black w3-opacity w3-hover-opacity-off" id="myNavbar2">
         <form method="GET" action="/logout">
           <input type="submit" value="Logout">
