@@ -2,6 +2,19 @@
   <body>
 
 <!-- Navbar (sit on top) -->
+<% if logged_in? %>
+<div class="w3-leftside w3-hide-small">
+  <div class="w3-bar w3-xlarge w3-black w3-opacity w3-hover-opacity-off" id="myNavbar">
+
+    <% User.all.each do |user| %>
+    <% if user.id == session[:user_id] %>
+    <a href="/users/<%= user.id %>">View Your Restaurant Entries</a>
+    <% end %>
+  <% end %>
+  </div>
+</div>
+<% end %>
+
 <% if current_user.id == @restaurant.user_id %>
 <div class="w3-leftside w3-hide-small">
   <div class="w3-bar w3-xlarge w3-black w3-opacity w3-hover-opacity-off" id="myNavbar">
@@ -57,7 +70,7 @@
     <p>Created by: Kelly Hesterly</p>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <a href="https://github.com/kellyhesterly?tab=repositories"><i class="fa fa-github fa-2x"></i></a>
-    <a href="www.linkedin.com/in/kellyhesterly"><i class="fa fa-linkedin-square fa-2x"></i></a>
+    <a href="https://www.linkedin.com/in/kellyhesterly"><i class="fa fa-linkedin-square fa-2x"></i></a>
     <a href="https://twitter.com/smithh_22"><i class="fa fa-twitter-square fa-2x"></i></a>
   </footer>
 

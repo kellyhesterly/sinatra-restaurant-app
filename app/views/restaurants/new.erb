@@ -1,22 +1,53 @@
+<!DOCTYPE html>
+  <body>
+
+<!-- Navbar (sit on top) -->
+<% if logged_in? %>
+  <div class="w3-leftside w3-hide-small">
+    <div class="w3-bar w3-xlarge w3-black w3-opacity w3-hover-opacity-off" id="myNavbar">
+
+      <% User.all.each do |user| %>
+        <% if user.id == session[:user_id] %>
+          <a href="/users/<%= user.id %>">View Your Restaurant Entries</a>
+        <% end %>
+      <% end %>
+      </div>
+    </div>
+<% end %>
+
 <!-- Flash message -->
   <% if flash[:message] %>
-      <br>
-      <br>
-      <h4><%= flash[:message] %></h4>
+    <br>
+    <br>
+    <h4><%= flash[:message] %></h4>
   <% end %>
 
+<!-- Header with image -->
+<header class="bgimg8" id="restaurantnew">
+<span class="w3-text-black-bold w3-hide-small" style="font-size:100px"><center>New Restaurant Entry</center></span>
 
-<h4>New Restaurant Entry</h4><br>
-
+<!-- New restaurant form -->
 <form method="POST" action="/restaurants">
 
-  Restaurant Name: <input type="text" name="name" value=""><br>
-  Why you love it: <input type="text" name="content" value=""><br>
-  Recommended Dish: <input type="text" name="dish" value=""><br>
-  Recommended Drink: <input type="text" name="drink" value=""><br>
-  How pricey is this place? <input type="text" name="price" value=""><br>
-  How was the service? <input type="text" name="service" value=""><br>
-  What's the atmosphere like? <input type="text" name="atmosphere" value=""><br>
+  <center><h3>Restaurant Name:</h3><input type="text" name="name" value=""></center><br>
+  <center><h3>Why you love it:</h3><input type="textarea" name="content" value=""></center><br>
+  <center><h3>Recommended Dish:</h3><input type="text" name="dish" value=""></center><br>
+  <center><h3>Recommended Drink:</h3><input type="text" name="drink" value=""></center><br>
+  <center><h3>How pricey is this place?</h3><input type="text" name="price" value=""></center><br>
+  <center><h3>How was the service?</h3><input type="text" name="service" value=""></center><br>
+  <center><h3>What's the atmosphere like?</h3><input type="text" name="atmosphere" value=""></center><br>
   <br>
-  <input type="submit" value="Create Entry"><br>
+  <center><input type="submit" value="Create Entry"></center><br>
 </form>
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-48 w3-xxlarge">
+  <p>Created by: Kelly Hesterly</p>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <a href="https://github.com/kellyhesterly?tab=repositories"><i class="fa fa-github fa-2x"></i></a>
+  <a href="https://www.linkedin.com/in/kellyhesterly"><i class="fa fa-linkedin-square fa-2x"></i></a>
+  <a href="https://twitter.com/smithh_22"><i class="fa fa-twitter-square fa-2x"></i></a>
+</footer>
+
+  </body>
+</html>
