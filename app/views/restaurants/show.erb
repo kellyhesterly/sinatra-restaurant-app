@@ -15,10 +15,17 @@
   </div>
 </div>
 
+<!-- Flash message -->
+  <% if flash[:message] %>
+      <br>
+      <br>
+      <h4><%= flash[:message] %></h4>
+  <% end %>
+
 <!-- Header with image -->
 <header class="bgimg5" id="restaurantshow">
 
-<br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br>
 
   <span class="w3-text-black-bold w3-hide-small" style="font-size:100px"><center><%= @restaurant.name %></center></span>
 

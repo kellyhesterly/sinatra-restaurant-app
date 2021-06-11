@@ -15,10 +15,18 @@
 </div>
 <% end %>
 
+<!-- Flash message -->
+  <% if flash[:message] %>
+    <br>
+    <br>
+    <h4><%= flash[:message] %></h4>
+  <% end %>
+  
 <!-- Header with image -->
  <header class="bgimg6" id="restaurantindex">
   <span class="w3-text-black-bold w3-hide-small" style="font-size:100px"><center>Restaurant Entries</center></span>
 
+<!-- Restaurant entries -->
 <% @restaurants.each do |restaurant| %>
   <center><a href="/restaurants/<%= restaurant.id %>"><h4><%= restaurant.name %></a> - submitted by <%= restaurant.user.name %></h4></center><br>
 <% end %>

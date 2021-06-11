@@ -1,15 +1,42 @@
-<h4>Restaurant Entry Edit</h4><br>
+<!DOCTYPE html>
+  <body>
 
+
+<!-- Flash message -->
+  <% if flash[:message] %>
+      <br>
+      <br>
+      <h4><%= flash[:message] %></h4>
+  <% end %>
+
+<!-- Header with image -->
+<header class="bgimg7" id="restaurantedit">
+ <span class="w3-text-black-bold w3-hide-small" style="font-size:100px"><center>Entry Edit</center></span>
+
+<!-- Restaurant edit -->
 <form method="POST" action="/restaurants/<%= @restaurant.id %>">
 <input type="hidden" name="_method" value="PATCH">
 
-  Restaurant Name: <input type="text" name="name" value="<%= @restaurant.name %>"><br>
-  Why you love it: <input type="text" name="content" value="<%= @restaurant.content %>"><br>
-  Recommended Dish: <input type="text" name="dish" value="<%= @restaurant.dish %>"><br>
-  Recommended Drink: <input type="text" name="drink" value="<%= @restaurant.drink %>"><br>
-  How pricey is this place? <input type="text" name="price" value="<%= @restaurant.price %>"><br>
-  How was the service? <input type="text" name="service" value="<%= @restaurant.service %>"><br>
-  What's the atmosphere like? <input type="text" name="atmosphere" value="<%= @restaurant.atmosphere %>"><br>
+  <center>Restaurant Name: <input type="text" name="name" value="<%= @restaurant.name %>"></center><br>
+  <center>Why you love it: <input type="text" name="content" value="<%= @restaurant.content %>"></center><br>
+  <center>Recommended Dish: <input type="text" name="dish" value="<%= @restaurant.dish %>"></center><br>
+  <center>Recommended Drink: <input type="text" name="drink" value="<%= @restaurant.drink %>"></center><br>
+  <center>How pricey is this place? <input type="text" name="price" value="<%= @restaurant.price %>"></center><br>
+  <center>How was the service? <input type="text" name="service" value="<%= @restaurant.service %>"></center><br>
+  <center>What's the atmosphere like? <input type="text" name="atmosphere" value="<%= @restaurant.atmosphere %>"></center><br>
   <br>
-  <input type="submit" value="Save Edits"><br>
+  <center><input type="submit" value="Save Edits"></center><br>
 </form>
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-48 w3-xxlarge">
+  <p>Created by: Kelly Hesterly</p>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <a href="https://github.com/kellyhesterly?tab=repositories"><i class="fa fa-github fa-2x"></i></a>
+  <a href="www.linkedin.com/in/kellyhesterly"><i class="fa fa-linkedin-square fa-2x"></i></a>
+  <a href="https://twitter.com/smithh_22"><i class="fa fa-twitter-square fa-2x"></i></a>
+</footer>
+
+
+  </body>
+</html>
