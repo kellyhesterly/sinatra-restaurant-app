@@ -1,36 +1,44 @@
-<h1><%= @restaurant.name %></h1><br>
+<!DOCTYPE html>
+  <body>
 
-<h2>Recommended by <%= @restaurant.user.name %></h2><br>
+<!--Header with image -->
+<header class="bgimg5" id="restaurantshow">
+
+<br><br><br><br><br><br><br>
+
+  <span class="w3-text-black-bold w3-hide-small" style="font-size:100px"><center><%= @restaurant.name %></center></span>
+
+<center><h2>Recommended by: <%= @restaurant.user.name %></h2></center>
+<!-- Restaurant entry -->
 <li>
-  <h4>Why <%= @restaurant.user.name %> loves it:</h4>
-  <p><%= @restaurant.content %></p><br>
+  <center><h4>Why <%= @restaurant.user.name %> loves it:</h4></center>
+  <center><p><%= @restaurant.content %></p></center>
 
-  <h4>Dish <%= @restaurant.user.name %> Recommends:</h4>
-  <p><%= @restaurant.dish %></p><br>
+  <center><h4>Dish <%= @restaurant.user.name %> Recommends:</h4></center>
+  <center><p><%= @restaurant.dish %></p></center>
 
-  <h4>Drink <%= @restaurant.user.name %> Recommends:</h4>
-  <p><%= @restaurant.drink %></p><br>
+  <center><h4>Drink <%= @restaurant.user.name %> Recommends:</h4></center>
+  <center><p><%= @restaurant.drink %></p></center>
 
-  <h4>Price:</h4>
-  <p><%= @restaurant.price %></p><br>
+  <center><h4>Price:</h4></center>
+  <center><p><%= @restaurant.price %></p></center>
 
-  <h4>What's the service like?</h4>
-  <p><%= @restaurant.service %></p><br>
+  <center><h4>What's the service like?</h4></center>
+  <center><p><%= @restaurant.service %></p></center>
 
-  <h4>What's the atmosphere like?</h4>
-  <p><%= @restaurant.atmosphere %></p><br>
+  <center><h4>What's the atmosphere like?</h4></center>
+  <center><p><%= @restaurant.atmosphere %></p></center>
 <li>
 
-<a href="/restaurants">View All Restaurant Entries</a><br>
-<br>
-<% if current_user.id == @restaurant.user_id %>
-  <a href="/restaurants/<%= @restaurant.id %>/edit">Edit Restaurant Entry</a><br>
-<br>
-<br>
 
-<form method="POST" action="/restaurants/<%= @restaurant.id %>">
-  <input type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete">
-</form>
+  <!-- Footer -->
+  <footer class="w3-center w3-black w3-padding-48 w3-xxlarge">
+    <p>Created by: Kelly Hesterly</p>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <a href="https://github.com/kellyhesterly?tab=repositories"><i class="fa fa-github fa-2x"></i></a>
+    <a href="www.linkedin.com/in/kellyhesterly"><i class="fa fa-linkedin-square fa-2x"></i></a>
+    <a href="https://twitter.com/smithh_22"><i class="fa fa-twitter-square fa-2x"></i></a>
+  </footer>
 
-<% end %>
+  </body>
+</html>

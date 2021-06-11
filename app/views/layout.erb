@@ -30,6 +30,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
     background-position: center;
 }
 
+.bgimg5 {
+  background-image: url("https://images.unsplash.com/photo-1516211697506-8360dbcfe9a4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80")
+}
 
 
 </style>
@@ -42,6 +45,14 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
       <div class="w3-bar w3-xlarge w3-black w3-opacity w3-hover-opacity-off" id="myNavbar">
         <a href="/restaurants">View All Restaurant Entries</a><br>
         <a href="/restaurants/new">Create Restaurant Entry</a><br>
+        <% if current_user.id == @restaurant.user_id %>
+          <a href="/restaurants/<%= @restaurant.id %>/edit">Edit Restaurant Entry</a><br>
+          <br>
+          <form method="POST" action="/restaurants/<%= @restaurant.id %>">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Delete Entry">
+          </form>
+          <% end %>
       <% end %>
       </div>
     </div>
