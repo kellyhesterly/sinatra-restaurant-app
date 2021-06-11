@@ -93,4 +93,5 @@ class RestaurantEntriesController < ApplicationController
     end
   end
 
+
 end

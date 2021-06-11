@@ -1,17 +1,36 @@
-<h4>Restaurant Entries</h4>
-<br>
-<br>
+<!DOCTYPE html>
+  <body>
 
-<% @restaurants.each do |restaurant| %>
-  <a href="/restaurants/<%= restaurant.id %>"><li><%= restaurant.name %></a> - submitted by <%= restaurant.user.name %></li><br>
+<!-- Navbar (sit on top) -->
+<% if logged_in? %>
+<div class="w3-leftside w3-hide-small">
+  <div class="w3-bar w3-xlarge w3-black w3-opacity w3-hover-opacity-off" id="myNavbar">
+
+    <% User.all.each do |user| %>
+    <% if user.id == session[:user_id] %>
+    <a href="/users/<%= user.id %>">View Your Restaurant Entries</a>
+    <% end %>
+  <% end %>
+  </div>
+</div>
 <% end %>
 
-<br>
-<br>
-<a href="/restaurants/new">Create Restaurant Entry</a><br>
-<br>
-<br>
+<!-- Header with image -->
+ <header class="bgimg6" id="restaurantindex">
+  <span class="w3-text-black-bold w3-hide-small" style="font-size:100px"><center>Restaurant Entries</center></span>
 
-<form method="GET" action="/logout">
-  <input type="submit" value="Logout">
-</form>
+<% @restaurants.each do |restaurant| %>
+  <center><a href="/restaurants/<%= restaurant.id %>"><h4><%= restaurant.name %></a> - submitted by <%= restaurant.user.name %></h4></center><br>
+<% end %>
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-48 w3-xxlarge">
+  <p>Created by: Kelly Hesterly</p>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <a href="https://github.com/kellyhesterly?tab=repositories"><i class="fa fa-github fa-2x"></i></a>
+  <a href="www.linkedin.com/in/kellyhesterly"><i class="fa fa-linkedin-square fa-2x"></i></a>
+  <a href="https://twitter.com/smithh_22"><i class="fa fa-twitter-square fa-2x"></i></a>
+</footer>
+
+  </body>
+</html>
