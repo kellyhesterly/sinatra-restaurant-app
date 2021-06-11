@@ -45,14 +45,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
       <div class="w3-bar w3-xlarge w3-black w3-opacity w3-hover-opacity-off" id="myNavbar">
         <a href="/restaurants">View All Restaurant Entries</a><br>
         <a href="/restaurants/new">Create Restaurant Entry</a><br>
-        <% if current_user.id == @restaurant.user_id %>
-          <a href="/restaurants/<%= @restaurant.id %>/edit">Edit Restaurant Entry</a><br>
-          <br>
-          <form method="POST" action="/restaurants/<%= @restaurant.id %>">
-            <input type="hidden" name="_method" value="DELETE">
-            <input type="submit" value="Delete Entry">
-          </form>
-          <% end %>
       <% end %>
       </div>
     </div>
