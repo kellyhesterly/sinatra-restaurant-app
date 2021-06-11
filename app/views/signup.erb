@@ -7,12 +7,10 @@
       <a href="/">Home</a>
     </div>
   </div>
-    <br>
-    <br>
+  <br>
 
 <!-- Flash message -->
   <% if flash[:message] %>
-      <br>
       <br>
       <h4><%= flash[:message] %></h4>
   <% end %>
@@ -21,20 +19,16 @@
 <header class="bgimg3 w3-display-container" id="signup">
 
 <form method="POST" action="/signup">
-
-  <center><h1>Please Signup Below</h1></center><br>
-    <center><h4>Name: </h4></center><center><input type="text" name="name" value=""><br>
-    <center><h4>Username: </h4></center><center><input type="text" name="username" value=""><br>
-    <center><h4>Password: </h4></center><center><input type="password" name="password" value=""><br>
-  <br>
-  <br>
-  <h3><center><input type="submit" value="Submit"></center></h3>
+    <br><center><h1>Please Signup Below</h1></center>
+    <center><h3>Name: </h3><input type="text" name="name" value=""></center>
+    <center><h3>Username: </h3><input type="text" name="username" value=""></center>
+    <center><h3>Password: </h3><input type="password" name="password" value=""></center>
+    <br><h3><center><input type="submit" value="Submit"></center></h3><br>
+    <br>
 </form>
 
 <br>
-<br>
-
-<center><h4><a href='/login'>Login</a></h4></center>
+<h2><a href='/login'>Login</a></h2>
 
 <!-- Footer -->
 <footer class="w3-center w3-black w3-padding-48 w3-xxlarge">

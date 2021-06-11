@@ -15,6 +15,7 @@
 <center><h1>Welcome <%= @user.name %>!</h1></center><br>
 <br>
 
+<!-- User restaurant entries -->
 <center><h3>Your restaurant entries:</h3></center>
 
 <% RestaurantEntry.all.each do |restaurant| %>
@@ -22,7 +23,7 @@
   <center><h4><a href="/restaurants/<%= restaurant.id %>"><%= restaurant.name %></a></h4></center><br>
   <% end %>
 <% end %>
-
+<br><br><br>
 </header>
 
 <!-- Footer -->
