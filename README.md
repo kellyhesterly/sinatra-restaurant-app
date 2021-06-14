@@ -1,5 +1,7 @@
 This is a simple Restaurant Entry app that allows users to log in, sign up and document a restaurant experience for recommendation purposes to friends and family.  Users can view other user experiences as well.  If a user would like to edit or delete their own entry, they may do so.  
 
+To use the app, run 'bundle install'.
+
 LICENSE
 
 Copyright <2021> <kellyhesterly>
