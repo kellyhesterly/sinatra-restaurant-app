@@ -70,6 +70,20 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
       </div>
     </div>
 
+    <!-- Navbar (sit on top logged_in) -->
+    <% if logged_in? %>
+    <div class="w3-leftside w3-hide-small">
+      <div class="w3-bar w3-xlarge w3-black w3-opacity w3-hover-opacity-off" id="myNavbar">
+
+        <% User.all.each do |user| %>
+        <% if user.id == session[:user_id] %>
+        <a href="/users/<%= user.id %>">View Your Restaurant Entries</a>
+        <% end %>
+      <% end %>
+      </div>
+    </div>
+    <% end %>
+
     <!-- Navbar (sit on bottom) -->
     <% if logged_in? %>
     <div class="w3-bottom">
