@@ -1,5 +1,6 @@
 class RestaurantEntriesController < ApplicationController
 
+#Create
   get '/restaurants/new' do
     erb :'/restaurants/new'
   end
@@ -20,6 +21,7 @@ class RestaurantEntriesController < ApplicationController
     end
   end
 
+#Read(All)
   get '/restaurants' do
     if logged_in?
       @restaurants = RestaurantEntry.all
@@ -30,6 +32,7 @@ class RestaurantEntriesController < ApplicationController
     end
   end
 
+#Read(Individual)
   get '/restaurants/:id' do
     if logged_in?
       @restaurant = RestaurantEntry.find(params[:id])
@@ -40,6 +43,7 @@ class RestaurantEntriesController < ApplicationController
     end
   end
 
+#Update
   get '/restaurants/:id/edit' do
     if logged_in?
       @restaurant = RestaurantEntry.find(params[:id])
@@ -76,6 +80,7 @@ class RestaurantEntriesController < ApplicationController
     end
   end
 
+#Delete
   delete '/restaurants/:id' do
     if logged_in?
       @restaurant = RestaurantEntry.find(params[:id])
