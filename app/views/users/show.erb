@@ -1,19 +1,11 @@
 <!DOCTYPE html>
   <body>
 
-<!-- Flash message -->
-  <% if flash[:message] %>
-    <br>
-    <br>
-    <h4><%= flash[:message] %></h4>
-  <% end %>
-
 <!-- Header with image -->
 <header class="bgimg4" id="show">
-
-<br>
+  <br>
 <center><h1>Welcome <%= @user.name %>!</h1></center><br>
-<br>
+  <br>
 
 <!-- User restaurant entries -->
 <center><h3>Your restaurant entries:</h3></center>

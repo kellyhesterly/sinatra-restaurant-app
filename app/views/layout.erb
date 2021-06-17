@@ -70,7 +70,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
       </div>
     </div>
 
-    <!-- Navbar (sit on top logged_in) -->
+    <!-- Navbar (View User Restaurant Entries) -->
     <% if logged_in? %>
     <div class="w3-leftside w3-hide-small">
       <div class="w3-bar w3-xlarge w3-black w3-opacity w3-hover-opacity-off" id="myNavbar">
@@ -84,6 +84,12 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
     </div>
     <% end %>
 
+    <!-- Flash message -->
+      <% if flash[:message] %>
+          <br>
+          <h4><%= flash[:message] %></h4>
+      <% end %>
+
     <!-- Navbar (sit on bottom) -->
     <% if logged_in? %>
     <div class="w3-bottom">
@@ -95,7 +101,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
     </div>
     <% end %>
 
-        <%= yield %>
-
   </body>
 </html>
+      <!-- <%= yield %>
